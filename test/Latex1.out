@@ -1,0 +1,19 @@
+First Template
+March 2016
+Item List
+In this template you have an itemized list that you have to generate the tokensfor using the lexical analyzer implemented in this milestone.
+item 1
+item 2
+item 3
+Math Mode
+In this section you have the math mode of latex presented using the dollarsign. In this mode you can present any form of mathematical expression. How-ever, for the scope of the the project we only restricted it to numbers, vari-ables(might be character, or a character followed by a number as shown below),operators(+,-,*,/,=) and functions.
+
+5
+
+3x
+
+5+z
+
+f1
+New Line
+The new Line in latex in expressed using double backslash, which will be alsobe the case in the project as well. So you might need to change your previouslexer a bit to adapt to this.

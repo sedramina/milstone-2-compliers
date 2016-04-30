@@ -1,0 +1,59 @@
+
+import java_cup.runtime.*;
+	
+/* Terminals (tokens returned by the scanner). */
+terminal	String		TEXT, BODY, NM, OPERATOR, ERROR, FUNC, VAR;
+terminal 				COMMENT, DOCCLASS, PACKAGE, BEGIN,  END, TITLE, SUBTITLE, SECTION, MAKE, BF, MATHMODE, ITEM, LABEL,NEWLINE,DATE;
+
+/* Non-terminals */
+nonterminal	String		input, content, itemlist, items, items2, math, equation, equation2, funpair;
+
+
+
+
+/* The grammar */
+
+input ::= DOCCLASS PACKAGE BEGIN content END;
+			 
+content ::= BODY:b content:c
+			{: RESULT= b+c; :}
+			| TEXT:t content
+			{: RESULT=t;:}
+			| SECTION content
+			| SUBTITLE content
+			| MAKE content
+			| itemlist content
+			| MATHMODE math content
+			| NEWLINE content
+			| equation content
+			| TITLE content
+			| DATE content
+			| BF content
+			| ERROR content
+			| COMMENT content
+			| ;
+
+itemlist ::= BEGIN items END;
+			
+
+items ::= ITEM items2 items
+		|ITEM items2
+		|ERROR;
+
+items2 ::= BODY
+		| math;
+
+
+math ::= NM math
+		|VAR math
+		|OPERATOR math
+		| ;
+			 
+
+equation ::= BEGIN LABEL equation2 END
+			| BEGIN equation2 END ;
+
+equation2 ::= FUNC OPERATOR VAR funpair;
+
+funpair ::= OPERATOR VAR funpair
+		| ;

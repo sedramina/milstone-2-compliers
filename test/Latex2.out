@@ -1,0 +1,11 @@
+Second Template
+March 2016
+Equation
+In this template you have the equation environment in latex.  It is an alternativefor the math mode but with a larger scope.  Moreover, in the equation mode we have the label command that adds a label for each equation that you can later use to reference an equation.
+
+2x-5y= 8
+
+f(x) =x^2
+Errors
+In  latex  you  cant  have  a  backslash  within  a  text,  otherwise,  it  will  cause  an undefined control sequence error.  In this milestone you have to include the line number that caused the error in the error message.
+Parse Error
